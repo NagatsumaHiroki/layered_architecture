@@ -1,13 +1,14 @@
 import { PrismaClient, type Book } from "../generated/prisma/client.js";
+import type { BookRepositoryInterface } from "./bookRepositoryInterface.js";
 
-export class PrismaBookRepository {
+export class PrismaBookRepository implements BookRepositoryInterface {
   private readonly prisma: PrismaClient;
 
   constructor() {
     this.prisma = new PrismaClient();
   }
 
-  async createBook(title: string): Promise<Book> {
+  async create(title: string): Promise<Book> {
     return this.prisma.book.create({
       data: {
         title,
@@ -16,7 +17,7 @@ export class PrismaBookRepository {
     });
   }
 
-  async getBookById(id: string): Promise<Book | null> {
+  async findById(id: string): Promise<Book | null> {
     return this.prisma.book.findUnique({
       where: { id },
     });

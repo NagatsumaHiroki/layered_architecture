@@ -1,19 +1,14 @@
-import { PrismaBookRepository } from "../dataAccess/prismaBookRepository.js";
 import type { Book } from "../generated/prisma/client.js";
+import type { BookRepositoryInterface } from "../dataAccess/bookRepositoryInterface.js";
+import type { BookServiceInterface } from "./bookServiceInterface.js";
 
-export class BookService {
- private readonly bookRepository: PrismaBookRepository;
- constructor() {
-  this.bookRepository = new PrismaBookRepository();
- }
+export class BookService implements BookServiceInterface {
+ constructor(private readonly bookRepository: BookRepositoryInterface) {}
 
  async add(title:string):Promise<Book> {
-  return await this.bookRepository.createBook(title);
+  return await this.bookRepository.create(title);
  }
  async findById(id:string):Promise<Book | null> {
-  return await this.bookRepository.getBookById(id);
- }
- async findAll():Promise<Book[]> {
-  return await this.bookRepository.getBooks();
+  return await this.bookRepository.findById(id);
  }
 }

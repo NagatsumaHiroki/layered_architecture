@@ -1,11 +1,10 @@
 import type { Request, Response } from "express";
 import { BookService } from "../businessLogic/bookService.js";
+import type { BookServiceInterface } from "../businessLogic/bookServiceInterface.js";
 
 export class BookController {
-    private readonly bookService: BookService;
-    constructor() {
-        this.bookService = new BookService();
-    }
+    
+    constructor(private readonly bookService: BookServiceInterface) {}
     async add(req: Request, res: Response): Promise<void> {
         try {
             const { title } = req.body as { title?: string };
@@ -32,16 +31,6 @@ export class BookController {
         } catch (error) {
             console.error(error);
             res.status(500).json({ error: "Failed to find book" });
-        }
-    }
-
-    async findAll(req: Request, res: Response): Promise<void> {
-        try {
-            const books = await this.bookService.findAll();
-            res.status(200).json(books);
-        } catch (error) {
-            console.error(error);
-            res.status(500).json({ error: "Failed to find books" });
         }
     }
 }
