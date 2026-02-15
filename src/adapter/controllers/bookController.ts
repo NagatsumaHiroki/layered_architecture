@@ -1,7 +1,7 @@
 import type { Request, Response } from "express";
-import type { AddBookUseCaseInterface } from "../../appplication/usecases/addBookUseCaseInrerface.js";
-import type { AddBookRequestDto } from "../../appplication/usecases/dtos/book/AddBookRequestDto.js";
-import type { FindBookByIdUseCaseInterface } from "../../appplication/usecases/findBookByIdUseCaseInterface.js";
+import type { AddBookUseCaseInterface } from "../../application/usecases/addBookUseCaseInterface.js";
+import type { AddBookRequestDto } from "../../application/usecases/dtos/book/AddBookRequestDto.js";
+import type { FindBookByIdUseCaseInterface } from "../../application/usecases/findBookByIdUseCaseInterface.js";
 
 export class BookController {
     constructor(

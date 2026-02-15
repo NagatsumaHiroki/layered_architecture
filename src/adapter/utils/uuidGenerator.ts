@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
-import type { IdGeneratorInterface } from "../../domain/entities/repostirories/utils/idGreneratorinterface.js";
+import type { IdGeneratorInterface } from "../../domain/entities/repositories/utils/idGeneratorInterface.js";
 
 export class UuidGenerator implements IdGeneratorInterface {
   generate(): string {

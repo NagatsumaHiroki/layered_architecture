@@ -4,8 +4,8 @@ import { BookController } from "../../adapter/controllers/bookController.js";
 import { PrismaBookRepository } from "../../adapter/repositories/prismaBookRepository.js";
 import { PrismaClient } from "@prisma/client";
 import { UuidGenerator } from "../../adapter/utils/uuidGenerator.js";
-import { AddBookUseCase } from "../../appplication/usecases/addBookUseCase.js";
-import { FindBookByIdUseCase } from "../../appplication/usecases/findBookByIdUseCase.js";
+import { AddBookUseCase } from "../../application/usecases/addBookUseCase.js";
+import { FindBookByIdUseCase } from "../../application/usecases/findBookByIdUseCase.js";
 import { bookRoutes } from "./routers/bookRouter.js";
 
 const app = express();

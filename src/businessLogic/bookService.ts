@@ -1,5 +1,5 @@
 import { Book } from "../domain/entities/book.js";
-import type { BookRepositoryInterface } from "../domain/entities/repostirories/bookRepositoryInterface.js";
+import type { BookRepositoryInterface } from "../domain/entities/repositories/bookRepositoryInterface.js";
 import type { BookServiceInterface } from "./bookServiceInterface.js";
 
 export class BookService implements BookServiceInterface {

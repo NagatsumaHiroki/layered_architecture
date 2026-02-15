@@ -1,4 +1,4 @@
-import type { BookRepositoryInterface } from "../../domain/entities/repostirories/bookRepositoryInterface.js";
+import type { BookRepositoryInterface } from "../../domain/entities/repositories/bookRepositoryInterface.js";
 import type { FindBookByIdRequestDto } from "./dtos/book/FindBookByIdRequestDto.js";
 import type { FindBookByIdResponseDto } from "./dtos/book/FindBookByIdResponseDto.js";
 import type { FindBookByIdUseCaseInterface } from "./findBookByIdUseCaseInterface.js";

@@ -1,5 +1,5 @@
 import { jest } from "@jest/globals";
-import type { BookRepositoryInterface } from "../domain/entities/repostirories/bookRepositoryInterface.js";
+import type { BookRepositoryInterface } from "../domain/entities/repositories/bookRepositoryInterface.js";
 import { BookService } from "./bookService.js";
 import { Book } from "../domain/entities/book.js";
 
