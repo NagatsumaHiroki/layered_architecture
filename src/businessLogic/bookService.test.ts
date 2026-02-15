@@ -1,21 +1,27 @@
 import { jest } from "@jest/globals";
-import type { BookRepositoryInterface } from "../dataAccess/bookRepositoryInterface.js";
+import type { BookRepositoryInterface } from "../domain/entities/repostirories/bookRepositoryInterface.js";
 import { BookService } from "./bookService.js";
-import type { Book } from "../generated/prisma/client.js";
+import { Book } from "../domain/entities/book.js";
 
 const mockBookRepository: jest.Mocked<BookRepositoryInterface> = {
     create: jest.fn(),
     findById: jest.fn(),
 };
 
-const buildBook = (overrides: Partial<Book> = {}): Book => ({
-    id: "1",
-    title: "Test Book",
-    isAvailable: true,
-    createAt: new Date(0),
-    updatedAt: new Date(0),
-    ...overrides,
-});
+const buildBook = (overrides: {
+    id?: string;
+    title?: string;
+    isAvailable?: boolean;
+    createAt?: Date;
+    updatedAt?: Date;
+} = {}): Book =>
+    new Book(
+        overrides.id ?? "1",
+        overrides.title ?? "Test Book",
+        overrides.isAvailable ?? true,
+        overrides.createAt ?? new Date(0),
+        overrides.updatedAt ?? new Date(0)
+    );
 
 describe("BookService", () => {
     let bookService: BookService;
@@ -38,7 +44,7 @@ describe("BookService", () => {
         // 結果が期待通りかチェック
         expect(result).toEqual(newBook);
         //モックが正しい引数で呼ばれているか
-        expect(mockBookRepository.create).toHaveBeenCalledWith("Test Book");
+        expect(mockBookRepository.create).toHaveBeenCalledWith(expect.any(Book));
     });
     it("書籍の取得が成功する", async () => {
         const book = buildBook();

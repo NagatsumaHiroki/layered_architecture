@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "dev": "node --loader ts-node/esm src/app.ts"
+    "dev": "node --loader ts-node/esm src/infrastructure/web/app.ts"
   },
   "keywords": [],
   "author": "",
@@ -14,7 +14,8 @@
   "dependencies": {
     "@prisma/client": "^6.19.2",
     "dotenv": "^16.4.7",
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "uuid": "^13.0.0"
   },
   "devDependencies": {
     "@types/express": "^5.0.6",
